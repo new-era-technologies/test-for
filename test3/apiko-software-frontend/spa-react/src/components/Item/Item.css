@@ -1,0 +1,10 @@
+.Item {
+    padding-top: 20px;
+}
+.Item__title {
+    text-align: center;
+}
+.Item__overview {
+    text-indent: 30px;
+    text-align: justify;
+}
