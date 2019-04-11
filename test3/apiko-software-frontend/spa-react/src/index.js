@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, Switch} from 'react-router-dom';
 import {createBrowserHistory} from 'history';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import routes from './routes/routes';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
@@ -11,12 +12,14 @@ const history = createBrowserHistory();
 ReactDOM.render(
     <div className="container">
             <Router history={history}>
-                <Switch>
-                    {routes.map(
-                        ({path, exact, component}, i) =>
-                            <Route key={i} path={path} exact={exact} component={component} />
-                    )}
-                </Switch>
+                <ScrollToTop>
+                    <Switch>
+                        {routes.map(
+                            ({path, exact, component}, i) =>
+                                <Route key={i} path={path} exact={exact} component={component} />
+                        )}
+                    </Switch>
+                </ScrollToTop>
             </Router>
     </div>
     , document.getElementById('root'));
