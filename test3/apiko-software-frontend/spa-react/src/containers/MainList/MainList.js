@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import spinner from '../../assets/img/spinner.gif';
 import './MainList.css';
 
 class MainList extends Component {
@@ -47,38 +48,46 @@ class MainList extends Component {
     render() {
         const {state: {dataList, srchList}} = this;
         const filteredList = srchList.length ? srchList : dataList;
-        return (
-            <div>
+        if (dataList.length) {
+            return (
                 <div>
-                    <form>
-                        <input
-                            type="search"
-                            placeholder="Movie name"
-                            ref = {inp => this.inp = inp}
-                            onChange = {this.srchMovies}
-                        />
-                        <input
-                            type="submit"
-                            value="Search"
-                            onClick={e => e.preventDefault()}
-                        />
-                    </form>
+                    <div>
+                        <form>
+                            <input
+                                type="search"
+                                placeholder="Movie name"
+                                ref={inp => this.inp = inp}
+                                onChange={this.srchMovies}
+                            />
+                            <input
+                                type="submit"
+                                value="Search"
+                                onClick={e => e.preventDefault()}
+                            />
+                        </form>
+                    </div>
+                    <ul className="MainList__listMovies">
+                        {filteredList.map(
+                            item =>
+                                item.map(
+                                    (item, i) =>
+                                        <li key={i}>
+                                            <Link to={`/movies/${item.id}`}>
+                                                {item.original_title}
+                                            </Link>
+                                        </li>
+                                )
+                        )}
+                    </ul>
                 </div>
-                <ul className="MainList__listMovies">
-                    {filteredList.map(
-                        item =>
-                            item.map(
-                                (item, i) =>
-                                    <li key={i}>
-                                        <Link to={`/movies/${item.id}`}>
-                                            {item.original_title}
-                                        </Link>
-                                    </li>
-                            )
-                    )}
-                </ul>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div className="Spinner">
+                    <img src={spinner} alt="spinner"/>
+                </div>
+            )
+        }
     }
 }
 
