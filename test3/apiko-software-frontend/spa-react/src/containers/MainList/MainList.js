@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import spinner from '../../assets/img/spinner.gif';
-import './MainList.css';
+import Spinner from '../../components/Spinner/Spinner';
 
 class MainList extends Component {
 
     state = {
         dataList: [],
-        srchList: []
+        srchList: [],
+        loading: true
     };
 
     srchMovies = () => {
@@ -40,54 +40,48 @@ class MainList extends Component {
                 this.setState({
                     dataList: [
                         res1.data.results, res2.data.results, res3.data.results, res4.data.results, res5.data.results
-                    ]
+                    ],
+                    loading: false
                 });
             }))
     }
 
     render() {
-        const {state: {dataList, srchList}} = this;
+        const {state: {dataList, srchList, loading}} = this;
         const filteredList = srchList.length ? srchList : dataList;
-        if (dataList.length) {
-            return (
+        const content = loading ? <Spinner /> : filteredList.map(
+                                                                item =>
+                                                                    item.map(
+                                                                        (item, i) =>
+                                                                            <li key={i}>
+                                                                                <Link to={`/movies/${item.id}`}>
+                                                                                    {item.original_title}
+                                                                                </Link>
+                                                                            </li>
+                                                                    )
+                                                                );
+        return (
+            <div>
                 <div>
-                    <div>
-                        <form>
-                            <input
-                                type="search"
-                                placeholder="Movie name"
-                                ref={inp => this.inp = inp}
-                                onChange={this.srchMovies}
-                            />
-                            <input
-                                type="submit"
-                                value="Search"
-                                onClick={e => e.preventDefault()}
-                            />
-                        </form>
-                    </div>
-                    <ul className="MainList__listMovies">
-                        {filteredList.map(
-                            item =>
-                                item.map(
-                                    (item, i) =>
-                                        <li key={i}>
-                                            <Link to={`/movies/${item.id}`}>
-                                                {item.original_title}
-                                            </Link>
-                                        </li>
-                                )
-                        )}
-                    </ul>
+                    <form>
+                        <input
+                            type="search"
+                            placeholder="Movie name"
+                            ref={inp => this.inp = inp}
+                            onChange={this.srchMovies}
+                        />
+                        <input
+                            type="submit"
+                            value="Search"
+                            onClick={e => e.preventDefault()}
+                        />
+                    </form>
                 </div>
-            )
-        } else {
-            return (
-                <div className="Spinner">
-                    <img src={spinner} alt="spinner"/>
-                </div>
-            )
-        }
+                <ul className="MainList__listMovies">
+                    {content}
+                </ul>
+            </div>
+        )
     }
 }
 

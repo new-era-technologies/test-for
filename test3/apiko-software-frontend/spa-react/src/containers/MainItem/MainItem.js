@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Item from '../../components/Item/Item';
-import spinner from '../../assets/img/spinner.gif';
-import './MainItem.css';
+import Spinner from '../../components/Spinner/Spinner';
 
 class MainItem extends Component {
     _isMounted = false;
 
     state = {
         dataItem: {},
-        dataList: []
+        dataList: [],
+        loading: true
     };
 
     componentDidMount() {
@@ -25,7 +25,8 @@ class MainItem extends Component {
                 if (this._isMounted) {
                     this.setState({
                         dataItem: res1.data,
-                        dataList: res2.data.results
+                        dataList: res2.data.results,
+                        loading: false
                     });
                 }
             }))
@@ -54,35 +55,29 @@ class MainItem extends Component {
     }
 
     render() {
-        const {state: {dataItem, dataList}} = this;
-        if (Object.keys(dataItem).length !== 0) {
-            return (
+        const {state: {dataItem, dataList, loading}} = this;
+        let contentRecomend = loading ? <Spinner/> : dataList.map(
+                                                        (item, i) =>
+                                                            <li key={i}>
+                                                                <Link to={`/movies/${item.id}`}>
+                                                                    {item.original_title}
+                                                                </Link>
+                                                            </li>
+                                                        );
+        let contentItem = loading ? <Spinner /> : <Item data={dataItem}/>;
+        return (
+            <div>
                 <div>
-                    <div>
-                        <Item data={dataItem}/>
-                    </div>
-                    <div>
-                        <h3>Recommendations</h3>
-                        <ul>
-                            {dataList.map(
-                                (item, i) =>
-                                    <li key={i}>
-                                        <Link to={`/movies/${item.id}`}>
-                                            {item.original_title}
-                                        </Link>
-                                    </li>
-                            )}
-                        </ul>
-                    </div>
+                    {contentItem}
                 </div>
-            )
-        } else {
-            return (
-                <div className="Spinner">
-                    <img src={spinner} alt="spinner"/>
+                <div>
+                    <h3>Recommendations</h3>
+                    <ul>
+                        {contentRecomend}
+                    </ul>
                 </div>
-            )
-        }
+            </div>
+        )
     }
 }
 
