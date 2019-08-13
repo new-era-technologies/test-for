@@ -1,0 +1,58 @@
+.slider {
+  margin-bottom: 15px;
+
+  &__box {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+
+    &__list {
+      position: relative;
+      height: 400px;
+      list-style: none;
+      border-top: 3px solid black;
+      border-bottom: 3px solid black;
+
+      &__item {
+        position: relative;
+        width: 960px;
+        height: 400px;
+        display: block;
+        float: left;
+        text-align: center;
+        line-height: 400px;
+        background-color: red;
+
+        &__link {
+          color: black;
+          padding: 10px;
+          border: 3px solid black;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &__control {
+      position: absolute;
+      top: 40%;
+      z-index: 999;
+      display: block;
+      padding: 2%;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 30px;
+      opacity: 0.8;
+      cursor: pointer;
+
+      &--next {
+        right: 0;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
