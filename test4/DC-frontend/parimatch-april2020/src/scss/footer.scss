@@ -1,0 +1,71 @@
+.footer_wrapper {
+    margin-top: 50px;
+    &__outer {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+        &__soc_box {
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            &__link {
+                display: block;
+                &--vk {
+                    width: 42px;
+                    height: 24px;
+                    background: url(../img/vk.svg);
+                }
+                &--insta {
+                    width: 24px;
+                    height: 24px;
+                    margin-left: 24px;
+                    background: url(../img/insta.svg);
+                }
+            }
+        }
+        &__os_box {
+            margin-left: 670px;
+            display: flex;
+            align-items: center;
+            &__link {
+                display: block;
+                &--google {
+                    width: 103px;
+                    height: 25px;
+                    background: url(../img/google.svg);
+                }
+                &--apple {
+                    margin-left: 70px;
+                    width: 90px;
+                    height: 27px;
+                    background: url(../img/apple.svg);
+                }
+            }
+        }
+        &__tools_box {
+            margin-left: 499px;
+            display: flex;
+            align-items: center;
+            &__item {
+                &--age {
+                    width: 39px;
+                    height: 39px;
+                    background: url(../img/age.svg);
+                }
+                &--visa {
+                    width: 56px;
+                    height: 20px;
+                    margin-left: 59px;
+                    background: url(../img/visa.svg);
+                }
+                &--mast {
+                    width: 43px;
+                    height: 33px;
+                    margin-left: 64px;
+                    background: url(../img/mast.svg);
+                }
+            }
+        }
+    }
+}

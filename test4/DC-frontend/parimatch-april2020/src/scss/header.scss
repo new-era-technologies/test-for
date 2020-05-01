@@ -1,0 +1,23 @@
+.header_wrapper {
+    padding-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    &__logo_box {
+        margin-top: 3px;
+        margin-left: 12px;
+        &__link {
+            width: 220px;
+            height: 68px;
+            display: block;
+            background: url(../img/logo.svg);
+        }
+    }
+    &__reg_box {
+        &__link {
+            width: 215px;
+            height: 59px;
+            display: block;
+            background: url(../img/reg.svg);
+        }
+    }
+}

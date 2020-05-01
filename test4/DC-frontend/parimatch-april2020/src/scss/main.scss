@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Scada:ital,wght@1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alef:wght@700&display=swap");
+
+.main_wrapper {
+    &__outer {
+        display: flex;
+        &__aside_box {
+            width: 845px;
+            margin-right: 60px;
+            &__outer {
+                position: relative;
+                &__img {
+                    position: absolute;
+                    top: -13px;
+                    left: 0;
+                    z-index: 1;
+                }
+            }
+        }
+        &__info_box {
+            &__outer {
+                display: flex;
+                flex-direction: column;
+                &__title_box {
+                    &__text {
+                        font-family: "Scada", sans-serif;
+                        font-style: italic;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        color: #ffffff;
+                        &--first {
+                            font-size: 75px;
+                            margin-left: 96px;
+                        }
+                        &--second {
+                            font-size: 26px;
+                            margin-left: 9px;
+                        }
+                        &--third {
+                            font-size: 81px;
+                            margin-left: 265px;
+                            color: #f8ff13;
+                        }
+                    }
+                }
+                &__settings_box {
+                    margin-top: 6px;
+                    display: flex;
+                    &__phone_box {
+                        position: relative;
+                        &__frame {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                        &__phone {
+                            width: 186px;
+                            height: 384px;
+                            margin-top: 100px;
+                            margin-left: 124px;
+                        }
+                    }
+                    &__text_box {
+                        width: 538px;
+                        margin-top: 93px;
+                        margin-left: 71px;
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+                        &__title {
+                            font-family: "Scada", sans-serif;
+                            font-size: 35.2px;
+                            font-style: italic;
+                            font-weight: 700;
+                            text-transform: uppercase;
+                            color: #ffffff;
+                        }
+                        &__list {
+                            margin-top: 5px;
+                            &__item {
+                                margin-top: 30px;
+                                display: flex;
+                                align-items: center;
+                                cursor: pointer;
+                                &__num {
+                                    width: 53px;
+                                    height: 49px;
+                                    background: url(../img/number_sprite.svg);
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+                                    font-family: "Nunito", sans-serif;
+                                    font-style: normal;
+                                    font-weight: normal;
+                                    font-size: 28px;
+                                    text-transform: uppercase;
+                                    color: #ffffff;
+                                }
+                                &__text {
+                                    width: 350px;
+                                    margin-left: 17px;
+                                    font-family: "Alef", sans-serif;
+                                    font-style: normal;
+                                    font-weight: bold;
+                                    font-size: 18px;
+                                    line-height: 18px;
+                                    color: #ffffff;
+                                    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                                }
+                            }
+                        }
+                        &__frame {
+                            position: absolute;
+                            bottom: -65px;
+                            right: 0;
+                        }
+                    }
+                }
+                &__set_box {
+                    &__outer {
+                        margin-top: 58px;
+                        margin-left: 300px;
+                        &__link {
+                            width: 313px;
+                            height: 79px;
+                            display: block;
+                            background: url(../img/set.svg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.clicked {
+    background-position: 0 -47px;
+    color: black;
+    transition: cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.2s;
+}

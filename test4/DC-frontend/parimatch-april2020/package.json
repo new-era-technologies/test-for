@@ -1,0 +1,29 @@
+{
+  "name": "parimatch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "browser-sync": "^2.26.7",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-jsvalidate": "^5.0.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify-es": "^2.0.0",
+    "node-sass": "^4.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
