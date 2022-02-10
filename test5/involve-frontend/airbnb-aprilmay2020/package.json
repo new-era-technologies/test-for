@@ -19,7 +19,7 @@
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^4.1.0",
     "gulp-uglify-es": "^2.0.0",
-    "node-sass": "^4.14.0"
+    "node-sass": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
